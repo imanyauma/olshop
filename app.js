@@ -21,9 +21,16 @@ app.set("view engine", "ejs");
 // Set public folder
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/', function (req, res) {
-    res.send('hello world')
-  })
+// app.get('/', function (req, res) {
+//     res.send('testtt')
+//   })
+
+app.get('/', function(req, res) {
+	res.render("index", {
+		title: 'Home'
+	});
+})
+
 
 //setup server
 var port = 5000;
