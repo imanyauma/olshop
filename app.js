@@ -2,6 +2,7 @@ var express = require("express");
 var path = require("path");
 var config = require("./config/database");
 var mongoose = require("mongoose");
+var expressValidator = require("express-validator");
 
 //connect to db
 mongoose.connect(config.database);
@@ -24,6 +25,30 @@ app.use(express.static(path.join(__dirname, "public")));
 //set routes
 var pages = require("./routes/pages.js");
 var adminPages = require("./routes/admin_pages.js");
+
+//express validator
+app.use(ExpressValidator({
+  errorFormatter: function(param, msg, value){
+    var namespace = param.split("."),
+    root = namespace.shift(),
+    formParam = root;
+    while (namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return{
+      param: formParam,
+        msg: msg,
+        value: value
+    };
+  }
+}))
+
+//connect flash
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
 
 //redirection
 app.use("/", pages);
