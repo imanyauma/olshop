@@ -89,7 +89,7 @@ app.use("/admin/products", adminProducts);
 app.use("/", pages);
 
 // Setup server
-var port = 3000;
+var port = 5000;
 app.listen(port, function() {
   console.log("Server running on port " + port);
 });
