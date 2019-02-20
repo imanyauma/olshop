@@ -1,0 +1,28 @@
+<% include _layouts/header %>
+
+<div class="container">
+  <div class="center">	
+    
+    <form action="login.php" method="post">
+      <div class="panel">
+        <br/>
+        <div class="panel-body">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="username">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password">
+          </div>	
+
+          <input type="submit" class="btn btn-primary" value="Log In">				
+        </div>
+        <br/>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+  <% include _layouts/footer %>

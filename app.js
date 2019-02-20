@@ -81,12 +81,14 @@ var pages = require("./routes/pages.js");
 var adminPages = require("./routes/admin_pages.js");
 var adminCategories = require("./routes/admin_categories.js");
 var adminProducts = require("./routes/admin_products.js");
+var login = require("./routes/login.js");
 
 // setup links
 app.use("/admin/pages", adminPages);
 app.use("/admin/categories", adminCategories);
 app.use("/admin/products", adminProducts);
 app.use("/", pages);
+app.use("/login", login);
 
 // Setup server
 var port = 5000;
